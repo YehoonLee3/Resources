@@ -157,7 +157,7 @@ git add . // 프로젝트에 포함되는지의 속성을 파일에 추가
 git commit -m 'init' // 속성이 있는 파일들을 프로젝트에 포함시키기
 git push heroku(origin) master // 프로젝트를 push로 원격 저장소에 보낸다.
 git pull // 원격 저장소에서 로컬 저장소로 가져오기
-git clone https://git.heroku.com/chatbot-test3.git // 원격 저장소에서 복사해오기
+git clone git@githun.com:YehoonLee3/chatbot-test3.git // 원격 저장소에서 복사해오기
 원격주소 삭제 git remote remove origin
 추가 git remote add origin git@github.com:YehoonLee3/ChatBotTest.git
 cd c:\dropbox\dev\ChatBotTest3
@@ -174,3 +174,15 @@ master에서 branch 만듬
 원격에서도 같은 이름으로 push 가능
 개발 마치면 master에 pull request 하면 검증한다.
 통과 시 merge 이후 배포한다.
+
+8. heroku
+$ heroku login // cmd에서
+
+$ cd my-project/
+$ git init
+$ heroku git:remote -a cake-resource // 앱 이름
+
+deploy 하려면
+$ git add .
+$ git commit -am "make it better"
+$ git push heroku master
