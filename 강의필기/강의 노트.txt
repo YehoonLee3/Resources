@@ -1,0 +1,176 @@
+1. 웹 애플리케이션 만들기
+다양한 기술들
+낮은 진입 장벽
+인터넷, Web
+Client: HTML, CSS, JavaScript, 웹 브라우저
+Server: 미들웨어(PHP), 데이터베이스(MySQL), 웹서버
+(*Java, Python, Oracle)
+무엇을 모르는지 알기 위한 강의
+PHP: 웹개발 기술
+MySQL: 무료 database, 거의 기술 표준
+
+1.1
+Web app을 만드는 순서: 구상(무엇을 만들 것인가?), 기획(계획), 디자인, 개발, 테스트
+처음에 간단하게 만든 이후 -> 필요한 기능을 추가
+기획: UserInterface모델링: 사용자 입장에서 동작하는 기능을 가상으로 만드는 것
+기획 도구: Pensil, Balsamiq, MS Powerpoint
+
+1.2
+Server-Client: Server: 웹서버가 설치됨 Client: 웹브라우저가 설치됨
+과정: Client에서 주소를 입력해서 Server에 요청하면, Server에 저장된 웹페이지를 보낸다(응답)
+
+1.3
+같은 컴퓨터에 웹 브라우저와 웹 서버 실행하기
+Web Server 프로그램: Apache, Nginx, IIS
+위 프로그램을 bitnami 프로그램을 통해 쉽게 설치할 수 있다.
+HTML, CSS는 정적인 언어, JS, PHP는 동적인 언어
+bitnami 설치 후 C:\Bitnami\wampstack-5.6.30-5\apache2\htdocs 위치에 htdocs라는 directory는 document root이다.
+
+Apache, PHP, MySQL 제어(bitnami 사용):
+C:\Bitnami\wampstack-5.6.30-5\manager-windows.exe - Apache Web Server가 start 되어야 한다.
+
+1.4
+User Interface 사람과 기계가 소통하기 위한 접점
+Application Program Interface 코드 등
+UI - 웹브라우저 - OS - C언어 - 어셈블리어 - 기계어(binary) - CPU디지털회로 - 전기
+
+
+1.5
+HTML(Hypertext Markup Language)
+문서간에 link로 연결되어 있다
+TAG: (옷을) 설명하는 정보 <시작>컨텐츠</끝>
+
+<strong></strong> 강조, bold
+
+<!--주석내용--> 주석
+
+<a href="주소" target="_blank">누르는 내용</a> 링크, _blank는 새창, _self는 현재창
+
+<li>html</li> list
+list를 구분하기 위해 <ul> </ul> 로 위 list 내용들을 묶는다.
+<ul> unordered list, 점으로 list됨
+<ol> ordered list, 1, 2, 3, 등
+
+<body> 본문 내용
+<head> 문서의 정보
+<title> 문서 제목
+<p>문단 구분</p>
+첫째줄<br />다음줄
+<!--form: 웹페이지 상호작용의 범위 지정-->
+<form action="5-2.php">
+  <p>ID 및 비밀번호를 입력하세요.</p>
+  <!--정보들을 입력-->
+  <input type="text" name="ID" />
+  <input type="text" name="password" />
+  <!--form 범위 내의 입력된 정보를 action의 대상으로 전송-->
+  <input type="submit" />
+  <!--5-2.php?ID=cdlyh&password=1111-->
+</form>
+<div id="control">묶는 효과, css로 관리하기 편하게 한다.</div>
+
+html을 체계적으로 관리 w3c
+<!DOCTYPE html> 어떤 표준안에 따라 작성되었는지?
+Tag Reference: dev.w3.org/html5/html-author
+
+1.6
+CSS - 디자인 중심의 확장기능
+<style>과</style> 사이에 정의
+
+2. PHP
+웹브라우저->(웹서버->PHP->데이터베이스)->php를 사용해 database의 내용을 html로 가져온다              
+<?php
+내의 문법은 php를 따른다
+?>
+wamp\php\php.ini 설정 바꾸기
+display_errors = On 에러 표시
+opcache.enable = 0 으로 수정, 코드 수정한 내용이 바로 반영됨
+php 수정 시 apache2 재실행 해야한다.
+CSS가 바뀌면 html의 모든 양식이 바뀐다.
+비슷하게 PHP는 하나의 php로 여러 사이트를 표현
+php는 server side 언어이다. 웹 브라우저에서 코드가 안보인다. php interpreter가 처리한다.
+<?php
+	echo "Hello world"; 문자 출력
+	echo 10+10; 숫자 20 출력
+	echo "10"+"10"; 숫자 20 출력
+	echo "10"."10"; 문자 1010출력
+  ?>
+error 가 생긴 경우,
+C:\Bitnami\wampstack-5.6.30-5\apache2\logs의 error.logs의 맨 아래에서 확인한다.
+
+echo "print"; 를 print out, echo 20+20; 도 가능
+cascade . 사용
+변수 $name = "흐앙"
+배열 $list = array("one", "two", "three"); count($list); $list[$i];
+
+4. Cloud9 (c9.io) 
+Open Linux terminal: Alt+T
+Outline panel: Ctrl+Shift+E
+Navigate panel: Ctrl+E
+port 지원: 8080(default, process.env.PORT), 8081, 8082
+
+npm init // 프로젝트 세팅
+npm install express --save // 편의기능이 있는 express을 설치
+run 하면 주소가 콘솔에 뜬다.
+
+5. Atom.io
+수정 가능한 editor
+Ctrl+W 프로젝트 tree view 토글
+Ctrl+Shift+F 프로젝트에서 찾기
+
+6. Sublime text 3
+https://packagecontrol.io/installation
+import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
+복사해서 콘솔에 붙이기
+
+Ctrl+` Console 보기
+Ctrl+Shift+P 명령창
+
+sublime 추천 기본 설정
+{ "bold_folder_labels": true, "caret_style": "phase", "color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme", "draw_minimap_border": true, "draw_white_space": "none", "fade_fold_buttons": false, "font_face": "Consolas", "font_size": 11, "highlight_line": true, "highlight_modified_tabs": true, "ignored_packages": [ "Markdown", "Vintage" ], "line_padding_bottom": 1, "line_padding_top": 1, "save_on_focus_lost": false, "tab_size": 4, "trim_trailing_white_space_on_save": true, "word_wrap": true }
+
+설치한 package
+File Icon
+AdvancedNewFile
+BracketHighlighter
+Colorsublime
+Emmet
+IMESupport
+JavaScript Completions
+JavaScript Snippets
+jQuery
+Nodejs
+Package Control
+SFTP
+SideBarEnhancements
+Terminal
+
+7. Git
+시작시 위치 설정: 환경변수 HOME에 위치 추가하기
+바로가기
+"C:\Program Files\Git\git-bash.exe" --cd-to-home
+%HOMEDRIVE%%HOMEPATH%
+npm init // 프로젝트 세팅
+npm install express --save // 편의기능이 있는 express을 설치
+ls -al // 현재 폴더의 내용 보기
+git remote -v // 원격 저장소 목록 보기
+git add . // 프로젝트에 포함되는지의 속성을 파일에 추가
+git commit -m 'init' // 속성이 있는 파일들을 프로젝트에 포함시키기
+git push heroku(origin) master // 프로젝트를 push로 원격 저장소에 보낸다.
+git pull // 원격 저장소에서 로컬 저장소로 가져오기
+git clone https://git.heroku.com/chatbot-test3.git // 원격 저장소에서 복사해오기
+원격주소 삭제 git remote remove origin
+추가 git remote add origin git@github.com:YehoonLee3/ChatBotTest.git
+cd c:\dropbox\dev\ChatBotTest3
+
+Git-flow 구조:
+Master branch, tag 입력
+Develop branch, 기능들을 merge
+Feature branch, 기능들
+Hotfix, 긴급한 버그, master에 바로 merge 가능
+Release bridge를 만들어 develop branch와 merge 이후, master에 다시 merge한다.
+GitHub flow 구조
+master는 누구나 배포 가능,
+master에서 branch 만듬
+원격에서도 같은 이름으로 push 가능
+개발 마치면 master에 pull request 하면 검증한다.
+통과 시 merge 이후 배포한다.

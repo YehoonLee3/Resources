@@ -1,0 +1,28 @@
+$ npm install npm -g
+npm 설치
+
+$ npm init
+기본 정보 수정
+  "name": "serversidejs",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Yehoon",
+  "license": "ISC",
+  "description": ""
+
+$ npm install jquery
++ jquery@3.2.1
+
+$ ls al
+폴더 내용 보기
+
+$mkdir a
+a라는 폴더 만들기
+
+$git remote
+remote 보기
+
