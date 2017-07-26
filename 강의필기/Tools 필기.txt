@@ -1,0 +1,87 @@
+5. Cloud9 (c9.io) 
+Open Linux terminal: Alt+T
+Outline panel: Ctrl+Shift+E
+Navigate panel: Ctrl+E
+port 지원: 8080(default, process.env.PORT), 8081, 8082
+
+npm init // 프로젝트 세팅
+npm install express --save // 편의기능이 있는 express을 설치
+run 하면 주소가 콘솔에 뜬다.
+
+6.1. Atom.io
+수정 가능한 editor
+Ctrl+W 프로젝트 tree view 토글
+Ctrl+Shift+F 프로젝트에서 찾기
+
+6.2. Sublime text 3
+https://packagecontrol.io/installation
+import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
+복사해서 콘솔에 붙이기
+
+Ctrl+` Console 보기
+Ctrl+Shift+P 명령창
+
+sublime 추천 기본 설정
+{ "bold_folder_labels": true, "caret_style": "phase", "color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme", "draw_minimap_border": true, "draw_white_space": "none", "fade_fold_buttons": false, "font_face": "Consolas", "font_size": 11, "highlight_line": true, "highlight_modified_tabs": true, "ignored_packages": [ "Markdown", "Vintage" ], "line_padding_bottom": 1, "line_padding_top": 1, "save_on_focus_lost": false, "tab_size": 4, "trim_trailing_white_space_on_save": true, "word_wrap": true }
+
+설치한 package
+File Icon
+AdvancedNewFile
+BracketHighlighter
+Colorsublime
+Emmet
+IMESupport
+JavaScript Completions
+JavaScript Snippets
+jQuery
+Nodejs
+Package Control
+SFTP
+SideBarEnhancements
+Terminal
+
+7. Git
+시작시 위치 설정: 환경변수 HOME에 위치 추가하기
+바로가기
+"C:\Program Files\Git\git-bash.exe" --cd-to-home
+%HOMEDRIVE%%HOMEPATH%
+npm init // 프로젝트 세팅
+npm install express --save // 편의기능이 있는 express을 설치
+ls -al // 현재 폴더의 내용 보기
+git remote -v // 원격 저장소 목록 보기
+git add . // 프로젝트에 포함되는지의 속성을 파일에 추가
+git commit -m 'init' // 속성이 있는 파일들을 프로젝트에 포함시키기
+git push heroku(origin) master // 프로젝트를 push로 원격 저장소에 보낸다.
+git pull // 원격 저장소에서 로컬 저장소로 가져오기
+git clone git@githun.com:YehoonLee3/chatbot-test3.git // 원격 저장소에서 복사해오기
+원격주소 삭제 git remote remove origin
+추가 git remote add origin git@github.com:YehoonLee3/ChatBotTest.git
+cd c:\dropbox\dev\ChatBotTest3
+
+Git-flow 구조:
+Master branch, tag 입력
+Develop branch, 기능들을 merge
+Feature branch, 기능들
+Hotfix, 긴급한 버그, master에 바로 merge 가능
+Release bridge를 만들어 develop branch와 merge 이후, master에 다시 merge한다.
+GitHub flow 구조
+master는 누구나 배포 가능,
+master에서 branch 만듬
+원격에서도 같은 이름으로 push 가능
+개발 마치면 master에 pull request 하면 검증한다.
+통과 시 merge 이후 배포한다.
+
+8. heroku
+$ heroku login // cmd에서
+
+$ cd my-project/
+$ git init
+$ create heroku cake-resource
+$ heroku git:remote -a cake-resource // 앱 이름
+$ heroku git:clone -a still-dusk-59364 // clone 할 때 조금 다르다
+deploy 하려면
+$ git add .
+$ git commit -am "make it better"
+$ git push heroku master
+실시간 heroku 로그 보기
+$ heroku logs --source  app --tail

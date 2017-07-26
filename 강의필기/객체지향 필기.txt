@@ -1,0 +1,111 @@
+3.9. object-oriented programming (OOP)
+
+action과 logic(procedural programming)이 아닌 Objects와 data 중심
+Logic: input->(process)->output
+OOP: identify object, their relation.
+
+class of objects. create new data type that is not already defined
+ex) Java Python C++
+
+function - method - routine - subroutine
+객체: 여러 함수와 변수를 모아 다른 함수 등과 구분하는 것(categorize), 복잡성을 낮출 수 있다.
+
+3.9.1 객체지향 특징
+큰 project의 기능별 grouping:
+객체 (변수, 메소드)
+
+다형성(polymorphism), 재활용성: Object는 다른 프로그램에 사용할 수 있다.
+추상화(abstraction): 관심사, 필요한 것을 sw적으로 단순화하는 과정
+캡슐화(encapsulation), 부품화, 은닉화: 기능별 로직, 메소드의 사용, 내부의 동작 방법을 케이스 안에 숨기고 사용자는 부품의 사용방법만 아는 것(ex. 모니터의 사용엔 모니터 원리가 필요없다). interface 표준으로 인해 부품들간의 결합이 가능하다.
+상속성(inheritance)
+
+3.10. JavaScript 객체지향
+Prototype-based programming
+
+3.10.1 생성자 new
+var person = { // object
+  person.name = 'yestin'; // 객체의 변수(property)
+  person.introduce = function(){} // 객체 내의 함수(method)
+}
+
+var p = new person(); // p는 객체, new person()은 생성자 새로운 객체를 만든 후 변수 p에 담았다.
+
+var funcThis = null;
+function Func(){ funcThis = this; }
+var o2 = new Func();
+if(funcThis === o2){ document.write('o2 <br />'); } 
+// 결과 o2
+
+3.10.2 전역객체 window.
+
+3.10.3 리터럴, 객체
+var sum = new Function('x', 'y', 'return x+y;'); // 마지막 인자가 함수의 본문이다. sum이라는 함수 객체를 만든 것이다.
+function sum(x,y) { return x+y; }// 함수 리터럴
+var o = { } // 객체 리터럴 === new Object
+var a = [1, 2, 3]; // 배열 리터럴 === new Array(1,2,3)
+
+3.10.4 apply, call
+var o = {}
+var p = {}
+function func(){
+    switch(this){
+        case o:
+            document.write('o<br />');
+            break;
+        case p:
+            document.write('p<br />');
+            break;
+        case window:
+            document.write('window<br />');
+            break;          
+    }
+}
+func(); // this==window, 결과: window
+func.apply(o); //func는 객체, apply는 func의 스펙, apply의 1번째 인자는 함수 호출 context. o라는 객체에서 func를 실행하는 것. 결과: o
+func.apply(p); // 결과: p
+//객체: master, 메소드: slave
+// 함수와 객체는 대등한 개별적인 것이다.
+// 하지만 func(); func.apply(o); 등 호출을 하면 window 또는 o에 소속이 될 수 있다.
+
+3.10.5 상속(inheritance)
+original: 부모 객체
+상속받은 객체: 변수, 메소드를 상속받는다.
+
+function Person(name){ this.name = name; }
+Person.prototype.name=null;
+Person.prototype.introduce = function(){ return 'My name is '+this.name; }
+ 
+function Programmer(name){ this.name = name; }
+Programmer.prototype = new Person();
+Programmer.prototype.coding = function(){ return "hello world"; }
+ 
+var p1 = new Programmer('egoing');
+document.write(p1.introduce()+"<br />");
+document.write(p1.coding()+"<br />");
+// 결과 My name is egoing        hello world
+
+3.10.6 상속 - prototype
+객체의 특수한 property.
+function Super(){}
+Super.prototype.superProp = true;
+ 
+function Sub(){}
+Sub.prototype = new Super();
+ 
+var o = new Sub();
+console.log(o.superProp); // true
+
+3.10.7 표준 내장 객체(Standard Built-in Object)
+Array.prototype.random = function(){
+  var index = Math.floor(this.length*Math.random());
+  return this[index];
+}
+var arr = new Array('seoul', 'new york', 'tokyo');
+console.log(arr.random());
+// prototype을 통해 모든 배열이 공통적으로 가질 수 있는 API를 직접 정의하는 것.
+
+3.10.8 Object 객체
+Object 객체는 모든 객체의 부모.
+Object.prototype은 모든 객체의 속성이 된다.
+Object.keys(arr); // 생성자 함수
+a.toString(); // Object.prototype.toString();의 사용

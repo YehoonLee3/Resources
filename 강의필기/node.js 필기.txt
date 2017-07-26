@@ -1,3 +1,5 @@
+4. Node.js
+
 V8 JavaScript engine + event-driven + non-blocking IO = node.js
 JavaScript는 언어, Web Browser에서 사용 가능, Web server에서 사용하면 node.js
 
@@ -7,10 +9,12 @@ JavaScript는 언어, Web Browser에서 사용 가능, Web server에서 사용하면 node.js
 컴퓨터에 0~65536번의 port가 있다.
 (http는 기본적으로)80번 port에 웹 서버를 연결 (listening 하게 한다)
 
+4.1 모듈
 모듈: 부품 (ex, http.createServer)
 var circle = require('./node.circle.js'); // node.circle.js 의 내용을 가져와서 cirle에 담는다.
 node.circle.js 의 내용을  위 코드의 파일에서 사용할 수 있다.
 
+4.2 app 모듈
 app.get('/', function(req, res){
 //사용자가 web server에 접속할 때 get과 host 방식으로 접속할 수 있다.
 //get 함수의 인자인 function()함수는 req, res 인자를 갖는다.
@@ -22,6 +26,7 @@ app.get('/', function(req, res){
 
 app.use(express.static('public')); // 정적인 파일이 위치할 디렉토리를 지정하는 기능
 
+4.3 다른 모듈
 __filename 파일 경로, __dirname 폴더 경로
 console.log() // 콘솔창에 표시
 console.time(label), console.timeEnd(label) // 시간 측정

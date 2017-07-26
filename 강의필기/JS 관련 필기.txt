@@ -1,8 +1,11 @@
+3. JavaScript
+3.1 개요
 과정: Client에서 주소를 입력해서 Server에 요청하면, Server에 저장된 웹페이지를 보낸다(응답)
 JavaScript는 web browser가 해석해서 처리하는 언어이다. (Client 자원 사용) 따라서 web browser에서 코드를 볼 수 있다.
 error가 있을 경우 browser의 JavaScript console에 표시된다.
 node.js는 웹서버에서 사용하는 JavaScript
 
+3.2 기본
 <script>
   document.write("10"+"10"); // cascade 출력: 1010
   password = prompt("비밀번호"); // 프롬프트로부터 password 변수의 값을 받기
@@ -12,6 +15,7 @@ node.js는 웹서버에서 사용하는 JavaScript
 배열 list = new Array("one", "two", "three"); list.length list[i]
 함수     function plus(input){ return input+1; }
 
+3.3 확장기능
 댓글 기능 disqus.com
 채팅 기능 tawk.to
 jQuery는 js의 라이브러리이다.
@@ -19,16 +23,16 @@ npm is the package manager for JavaScript
 JSON: JavaScriptObjectNotaion. 객체를 만들 때 사용하는 표현식
 var person = {"height":184, "Job":"programmer"}
 
-
+3.4 
 Math.pow(3,2); // 3의 2승
 Math.random(); // 0~1사이 임의의 수
 typeof 은 data 형을 알려준다.
 
-객체
+3.5 객체
 var grades = {'egoing': 10, 'k8805': 6, 'sorialgi': 80}; // 정의
 alert(grades.sorialgi); // 사용
 
-익명함수
+3.6 익명함수
 원래함수 형식
 function 함수이름 (매개변수) { 실행문; }
 익명함수 형식
@@ -43,6 +47,15 @@ ex)
 var power = (n) => n * n
 power(10)
 
-this:
+3.7 this: // 현재 속해있는 객체
 function f1() { return this; }
 f1() === global;// In Node:
+
+3.8 매개변수, 인자
+JavaScript는 인자가 a(temp); 없어도 매개변수 function a (arg1, arg2) 가 있을 수 있다.
+arguments(유사 배열, 객체의 instance): 사용자가 전달한 인자들에 접근할 수 있다. sum(1, 2, 3, 4);
+temp = arguments.length;
+
+매개변수의 수
+function_name.length // 매개변수의 숫자
+arguments.length // 함수가 받은 인자의 숫자
