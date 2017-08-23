@@ -1,0 +1,61 @@
+9.0. Database
+정보를 안전하고 효율적으로 관리하는 전문 어플리케이션
+index 를 이용하여 정보를 찾기 빠르다
+SQL로 프로그래밍적 제어 가능
+Database: Relational DB, 관계형 아닌 DB
+Relational DB = [ORACLE, MYSQL, SQL Server]
+data를 table에 저장
+모든 row는 unique primary key를 가진다
+
+9.1. MySQL (MariaDB)
+database는 SQL이라는 언어를 사용
+MySQL은 SQL을 사용하는 프로그램
+MySQL Monitor(Client) - MySQL Server
+MySQL Server 안에 여러개의 Database가 있고,
+하나의 DB 안에 여러개의 table이 있다.
+
+C:\Bitnami\wampstack-5.6.30-5\mysql\bin 에서 mysql 실행
+mysql -hlocalhost -uroot -p
+localhost는 주소, root는 사용자, 비밀번호 입력 p
+Bitnami의 비밀번호 입력
+
+9.1.1 SQL 명령어
+show databases;
+CREATE DATABASE pbsanjose CHARACTER SET utf8 COLLATE utf8_general_ci;
+use pbsanjose; // 그 database를 사용한다. (폴더에 들어간다)
+CREATE TABLE `cakes`( 
+	`id` int(11) NOT NULL 
+mysql> CREATE TABLE `cakes`( // cakes라는 이름의 table을 만든다
+    -> `id` int(11) NOT NULL AUTO_INCREMENT,
+// 11자리 integer의 id라는 항목, 비면 안된다, 자동으로 증가
+    -> `name` varchar(100) NOT NULL, // 최대 100글자
+    -> `description` text NOT NULL, // 긴 text
+    -> `baked` datetime NOT NULL,
+    -> PRIMARY KEY(id)
+    -> ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `cakes` (name, description, baked) VALUES('Blueberry Chiffon', 'I love blueberry!', '2017-08-11 17:37');
+// cakes라는 table의 name...등 각 항목에 VALUES의 값을 넣은다
+
+
+SELECT * FROM topic;
+
+9.2. OrientDB
+NoSQL
+Install Apache Commons Daemon first
+C:\Program Files\orientdb-community-importers-2.2.25\bin
+에서 server.bat 실행
+http://localhost:2480/ 들어가면 된다. root는 관리자
+data의 구조가 있게 DB에 입력을 하려고 한다: schema setting
+OrientDB driver for Node.js: https://github.com/orientechnologies/orientjs
+class에 propertie(name, description) 등을 setting할 수 있다.
+rid #21:0 은 그 행을 나타내는 id이다.
+
+9.3. Heroku Postgres (DB)
+
+
+10. twilio.com
+
+11. papertrail
+
+12. sendgrid
+

@@ -1,4 +1,4 @@
-5. Cloud9 (c9.io) 
+  5. Cloud9 (c9.io) 
 Open Linux terminal: Alt+T
 Outline panel: Ctrl+Shift+E
 Navigate panel: Ctrl+E
@@ -71,6 +71,11 @@ master에서 branch 만듬
 개발 마치면 master에 pull request 하면 검증한다.
 통과 시 merge 이후 배포한다.
 
+필수설치 package
+npm install npm --save
+npm install express request body-parser --save
+npm install node-gyp 
+
 8. heroku
 $ heroku login // cmd에서
 
@@ -85,3 +90,9 @@ $ git commit -am "make it better"
 $ git push heroku master
 실시간 heroku 로그 보기
 $ heroku logs --source  app --tail
+
+heroku keys:clear
+ssh-keygen -t rsa
+heroku keys:add
+heroku create
+git push heroku master
